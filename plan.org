@@ -1,0 +1,18 @@
+* Plan
+https://www.ops-class.org/asst/overview/#top
+Completion month : 2018 Jan
+ | operating system cs161 (80 hours) | points | effort | status      |   |
+ |-----------------------------------+--------+--------+-------------+---|
+ | ASST0                             |      1 |      0 | IN PROGRESS |   |
+ | ASST1                             |      2 |        |             |   |
+ | ASST2                             |      7 |        |             |   |
+ | ASST3                             |     13 |        |             |   |
+* TODO ASST0 [%]
+1. [ ] Have set up your OS/161 development environment.
+2. [ ] Understand the source code structure of OS/161.
+3. [ ] Be comfortable navigating the OS/161 sources to determine where and how things are done.
+4. [ ] Have been introduced to Git and GDB.
+5. [ ] Be able to, modify, build and run your first OS/161 kernel.
+* TODO ASST1
+* TODO ASST2
+* TODO ASST3
