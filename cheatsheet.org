@@ -1,0 +1,15 @@
+vagrant up
+vagrant halt
+vagrant ssh
+
+sys161.conf to configure the emulator.
+src/kern to configure kernel
+
+cd /kern/compile/DUMBVM/
+bmake ; bmake install to build the source code
+
+
+sys161 -w kernel
+
+os161-gdb kernel
+target remote unix:.sockets/gdb

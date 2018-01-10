@@ -3,16 +3,33 @@ https://www.ops-class.org/asst/overview/#top
 Completion month : 2018 Jan
  | operating system cs161 (80 hours) | points | effort | status      |   |
  |-----------------------------------+--------+--------+-------------+---|
- | ASST0                             |      1 |      0 | IN PROGRESS |   |
- | ASST1                             |      2 |        |             |   |
+ | ASST0                             |      1 |      3 | DONE        |   |
+ | ASST1                             |      2 |      0 | IN PROGRESS |   |
  | ASST2                             |      7 |        |             |   |
  | ASST3                             |     13 |        |             |   |
-* TODO ASST0 [%]
-1. [ ] Have set up your OS/161 development environment.
-2. [ ] Understand the source code structure of OS/161.
-3. [ ] Be comfortable navigating the OS/161 sources to determine where and how things are done.
-4. [ ] Have been introduced to Git and GDB.
-5. [ ] Be able to, modify, build and run your first OS/161 kernel.
-* TODO ASST1
+* Resources
+1. [[http://pages.cs.wisc.edu/%257Eremzi/OSTEP/][Ebook : Operating System in 3 easy pieces]]
+2. Hardcover book : operating systems in depth
+
+* DONE ASST0 [100%]
+1. [X] Have set up your OS/161 development environment.
+   - [X]  install vagrant
+   - [X]  install virtualbox
+   - [X]  get vagrant file
+   - [X]  vagrant up
+   - [X]  build kernel
+   - [X] run kernel
+   - [X] put src in shared folder
+   - [X] explore source directory
+   - [X] create TAGS etags `find . -name "*.c" -o -name "*.h"`
+   - [X] cscope https://blog.dowhile0.org/2011/07/04/emacs-configuration-for-linux-kernel-development/
+2. [X] Understand the source code structure of OS/161.
+3. [X] Be comfortable navigating the OS/161 sources to determine where and how things are done.
+4. [X] Have been introduced to Git and GDB.
+5. [X] Be able to, modify, build and run your first OS/161 kernel.
+* TODO ASST1[%]
+- [ ] Understand the OS/161 thread subsystem and existing synchronization primitives: spinlocks and semaphores.
+- [ ] Have implemented working locks, condition variables, and reader-writer locks that you can use it later assignments.
+- [ ] Be able to properly address different synchronization problems by choosing and applying the correct synchronization primitive.
 * TODO ASST2
 * TODO ASST3

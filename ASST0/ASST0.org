@@ -1,0 +1,59 @@
+* DONE What function initializes the kernel during boot, and what subsystems are currently initialized?
+/Users/hl/hack_os161/vagrant/shared/os161/kern/main/main.c:boot()
+	ram_bootstrap();
+	proc_bootstrap();
+	thread_bootstrap();
+	hardclock_bootstrap();
+	vfs_bootstrap();
+	mainbus_bootstrap();
+	vm_bootstrap();
+	kprintf_bootstrap();
+	test161_bootstrap();
+* DONE What VM system does your kernel use by default? What is wrong with it?
+./kern/arch/mips/vm/dumbvm.c:68:vm_bootstrap(void)
+we should be using arch/sys161
+* DONE OS/161 ships with two working synchronization primitives. What are they?
+semaphore and spinlock
+* DONE How do you create a thread in OS/161? Give some examples of code that currently creates multiple threads.
+*** main/menu.c:
+common_prog[132]               result = thread_fork(args[0] ,
+cmd_deadlock[332]              result = thread_fork(args[0] ,
+*** test/synchprobs.c:
+whalemating[290]               err = thread_fork(name, NULL, male_wrapper, NULL, index);
+whalemating[294]               err = thread_fork(name, NULL, female_wrapper, NULL, index);
+whalemating[332]               err = thread_fork(name, NULL, matchmaker_wrapper, NULL, index);
+stoplight[645]                 err = thread_fork(name, NULL, gostraight_wrapper, (void *)i, direction);
+stoplight[649]                 err = thread_fork(name, NULL, turnleft_wrapper, (void *)i, direction);
+stoplight[653]                 err = thread_fork(name, NULL, turnright_wrapper, (void *)i, direction);
+
+* DONE OS/161 has a system for printing debugging messages to the console. How does it work? How could it be useful?
+it is used in the same way as printf.
+* What do copyin and copyout do? What is special about these functions compared to other approaches to copying memory in C, like memmove?
+copyin copies memory from userspace to kernal space.
+copyout does the reverse, copying memory from kernal space to
+userspace.
+
+These 2 functions do additional check before calling memmove.
+* DONE What is a zombie thread?
+A zombie thread is a joinable thread which has terminated, but which
+hasn't been joined. Normally, either a thread should be joined at some
+time, or it should be detached. Otherwise, the OS maintains its state
+for some possible future join, which takes resources.
+
+* DONE What is the difference between a thread sleeping and a thread yielding?
+when a thread is put to sleep, the thread will not be runnable and the next available thread will set to
+run.
+a yielding thread is like a sleeping thread, except that it remains runnable.
+* DONE Explain the difference between machine dependent and machine independent code. Where would you put both in the OS/161 source tree?
+"By architecture-specific, we mean the code that differs depending on
+the hardware platform on which you’re running. There are two
+directories here: mips which contains code specific to the MIPS
+processor and sys161	which contains code specific to the System/161
+simulator."
+
+machine dependent code in arch folder
+machine independent code in any folder outside arch folder.
+* DONE What functions are used to enable and restore interrupts? Would this be sufficient to ensure mutual exclusion on an OS/161 kernel?
+
+cpu_irqoff
+cpu_irqon
