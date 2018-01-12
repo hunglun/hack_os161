@@ -13,3 +13,14 @@ sys161 -w kernel
 
 os161-gdb kernel
 target remote unix:.sockets/gdb
+
+assert : KASSERT
+
+critical section
+spinlock_acquire
+spinlock_release
+
+wchan_wakeone : wake one a thread and lock the spinlock
+wchan_sleep : make a thread sleep and drop the lock.
+
+git clone https://github.com/ops-class/os161 -o staff
